@@ -18,7 +18,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Library.ServiceDefaults\Library.ServiceDefaults.csproj" />
-    <ProjectReference Include="..\Web.Dashboard\Web.Dashboard.esproj">
+    <ProjectReference Include="..\Web.Dashboard\Web.DashboardR.esproj">
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
   </ItemGroup>

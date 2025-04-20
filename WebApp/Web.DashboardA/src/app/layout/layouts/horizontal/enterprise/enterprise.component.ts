@@ -18,6 +18,7 @@ import { NotificationsComponent } from 'app/layout/common/notifications/notifica
 import { QuickChatComponent } from 'app/layout/common/quick-chat/quick-chat.component';
 import { SearchComponent } from 'app/layout/common/search/search.component';
 import { ShortcutsComponent } from 'app/layout/common/shortcuts/shortcuts.component';
+import { SettingsComponent } from 'app/layout/common/settings/settings.component';
 import { UserComponent } from 'app/layout/common/user/user.component';
 import { Subject, takeUntil } from 'rxjs';
 
@@ -36,6 +37,7 @@ import { Subject, takeUntil } from 'rxjs';
         ShortcutsComponent,
         MessagesComponent,
         NotificationsComponent,
+        SettingsComponent,
         UserComponent,
         FuseHorizontalNavigationComponent,
         RouterOutlet,

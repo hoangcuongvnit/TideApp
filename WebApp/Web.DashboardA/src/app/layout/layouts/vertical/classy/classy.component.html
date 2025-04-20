@@ -79,16 +79,7 @@
             <fuse-fullscreen class="hidden md:block"></fuse-fullscreen>
             <search [appearance]="'bar'"></search>
             <shortcuts></shortcuts>
-            <messages></messages>
-            <button
-                class="lg:hidden"
-                mat-icon-button
-                (click)="quickChat.toggle()"
-            >
-                <mat-icon
-                    [svgIcon]="'heroicons_outline:chat-bubble-left-right'"
-                ></mat-icon>
-            </button>
+            <settings></settings>
         </div>
     </div>
 
@@ -102,10 +93,7 @@
     </div>
 
     <!-- Footer -->
-    <!--<div class="relative flex flex-0 items-center justify-start w-full h-14 px-4 md:px-6 z-49 border-t bg-card dark:bg-transparent print:hidden">
+    <div class="relative flex flex-0 items-center justify-start w-full h-14 px-4 md:px-6 z-49 border-t bg-card dark:bg-transparent print:hidden">
         <span class="font-medium text-secondary">Fuse &copy; {{currentYear}}</span>
-    </div>-->
+    </div>
 </div>
-
-<!-- Quick chat -->
-<quick-chat #quickChat="quickChat"></quick-chat>

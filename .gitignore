@@ -1,0 +1,52 @@
+# Logs
+logs
+*.log
+*.vsidx
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Node modules
+node_modules
+
+# Build directories
+dist
+dist-ssr
+out
+build
+
+# Local environment files
+*.local
+
+# Editor directories and files
+.vscode/*
+.vs/*
+/.vs/
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# .NET Core specific
+bin/
+obj/
+*.user
+*.rsuser
+*.userosscache
+*.sln.docstates
+*.dtbcache.*
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# Visual Studio Code
+.vscode/
+
+# Rider
+.idea/

@@ -1,0 +1,1 @@
+export const PasswordStrengthDefault = 'PasswordStrength13579@#@#$%^&102938475daseqGFDHsdbs' as string

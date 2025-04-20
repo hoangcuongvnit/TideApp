@@ -1,0 +1,38 @@
+services:
+  account.api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=5165
+      - ASPNETCORE_HTTPS_PORTS=7197
+    ports:
+      - "5165:5165"
+      - "7197:7197"
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro
+  blog.api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=5005
+      - ASPNETCORE_HTTPS_PORTS=7125
+    ports:
+      - "5005:5005"
+      - "7125:7125"
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro
+  web.gateway:
+    environment:
+        - ASPNETCORE_ENVIRONMENT=Development
+        - ASPNETCORE_HTTP_PORTS=5268
+        - ASPNETCORE_HTTPS_PORTS=7145
+    ports:
+        - "5268:5268"
+        - "7145:7145"
+    volumes:
+        - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
+        - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro
+
+  # frontend.client:
+  #   ports:
+  #     - "8080:8080"

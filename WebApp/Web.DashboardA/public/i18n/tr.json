@@ -1,5 +1,8 @@
 {
     "welcome-back": "Hoşgeldin",
     "Project": "Proje",
-    "Analytics": "Analitik"
+    "Analytics": "Analitik",
+    "sign-in": "Giriş yap",
+    "sign-up": "Kayıt ol",
+    "sign-out": "Çıkış yap"
 }

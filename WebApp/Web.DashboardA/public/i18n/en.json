@@ -1,5 +1,8 @@
 {
     "welcome-back": "Welcome back",
     "Project": "Project",
-    "Analytics": "Analytics"
+    "Analytics": "Analytics",
+    "sign-in": "Sign in",
+    "sign-up": "Sign up",
+    "sign-out": "Sign out"
 }

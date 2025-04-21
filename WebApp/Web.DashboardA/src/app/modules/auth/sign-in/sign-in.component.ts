@@ -18,6 +18,7 @@ import { fuseAnimations } from '@fuse/animations';
 import { FuseAlertComponent, FuseAlertType } from '@fuse/components/alert';
 import { AuthService } from 'app/core/auth/auth.service';
 import { LanguagesComponent } from 'app/layout/common/languages/languages.component';
+import { TranslocoModule } from '@jsverse/transloco';
 
 @Component({
     selector: 'auth-sign-in',
@@ -36,6 +37,7 @@ import { LanguagesComponent } from 'app/layout/common/languages/languages.compon
         MatCheckboxModule,
         MatProgressSpinnerModule,
         LanguagesComponent,
+        TranslocoModule,
     ],
 })
 export class AuthSignInComponent implements OnInit {

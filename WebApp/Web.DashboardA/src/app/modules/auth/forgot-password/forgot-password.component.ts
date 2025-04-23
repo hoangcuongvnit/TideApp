@@ -11,6 +11,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { TranslocoModule } from '@jsverse/transloco';
 import { RouterLink } from '@angular/router';
 import { fuseAnimations } from '@fuse/animations';
 import { FuseAlertComponent, FuseAlertType } from '@fuse/components/alert';
@@ -31,6 +32,7 @@ import { finalize } from 'rxjs';
         MatButtonModule,
         MatProgressSpinnerModule,
         RouterLink,
+        TranslocoModule,
     ],
 })
 export class AuthForgotPasswordComponent implements OnInit {

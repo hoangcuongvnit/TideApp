@@ -15,6 +15,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { Router } from '@angular/router';
 import { UserService } from 'app/core/user/user.service';
+import { TranslocoModule } from '@jsverse/transloco';
 import { User } from 'app/core/user/user.types';
 import { Subject, takeUntil } from 'rxjs';
 
@@ -30,6 +31,7 @@ import { Subject, takeUntil } from 'rxjs';
         MatIconModule,
         NgClass,
         MatDividerModule,
+        TranslocoModule,
     ],
 })
 export class UserComponent implements OnInit, OnDestroy {

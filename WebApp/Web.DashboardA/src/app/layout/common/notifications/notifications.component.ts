@@ -18,6 +18,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { RouterLink } from '@angular/router';
 import { NotificationsService } from 'app/layout/common/notifications/notifications.service';
 import { Notification } from 'app/layout/common/notifications/notifications.types';
+import { TranslocoModule } from '@jsverse/transloco';
 import { Subject, takeUntil } from 'rxjs';
 
 @Component({
@@ -34,6 +35,7 @@ import { Subject, takeUntil } from 'rxjs';
         NgTemplateOutlet,
         RouterLink,
         DatePipe,
+        TranslocoModule,
     ],
 })
 export class NotificationsComponent implements OnInit, OnDestroy {

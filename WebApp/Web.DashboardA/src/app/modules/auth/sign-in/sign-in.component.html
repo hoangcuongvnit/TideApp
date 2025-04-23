@@ -13,7 +13,7 @@
                     {{ t('sign-in') }}
                 </div>
                 <div class="mt-0.5 flex items-baseline font-medium">
-                    <div>Don't have an account?</div>
+                    <div>{{ t("don't-have-an-account") }}</div>
                     <a class="ml-1 text-primary-500 hover:underline" [routerLink]="['/sign-up']">{{ t('sign-up') }}</a>
                 </div>
 
@@ -29,21 +29,21 @@
                 <form class="mt-8" [formGroup]="signInForm" #signInNgForm="ngForm">
                     <!-- Email field -->
                     <mat-form-field class="w-full">
-                        <mat-label>Email address</mat-label>
+                        <mat-label>{{ t('email-address') }}</mat-label>
                         <input id="email" matInput [formControlName]="'email'" />
                         @if (signInForm.get('email').hasError('required')) {
-                        <mat-error> Email address is required </mat-error>
+                        <mat-error>{{ t('email-address-required') }}</mat-error>
                         }
                         @if (signInForm.get('email').hasError('email')) {
                         <mat-error>
-                            Please enter a valid email address
+                            {{ t('valid-email-required') }}
                         </mat-error>
                         }
                     </mat-form-field>
 
                     <!-- Password field -->
                     <mat-form-field class="w-full">
-                        <mat-label>Password</mat-label>
+                        <mat-label>{{ t('password') }}</mat-label>
                         <input id="password" matInput type="password" [formControlName]="'password'" #passwordField />
                         <button mat-icon-button type="button" (click)="
                                 passwordField.type === 'password'
@@ -57,17 +57,17 @@
                             <mat-icon class="icon-size-5" [svgIcon]="'heroicons_solid:eye-slash'"></mat-icon>
                             }
                         </button>
-                        <mat-error> Password is required </mat-error>
+                        <mat-error>{{ t('password-required') }}</mat-error>
                     </mat-form-field>
 
                     <!-- Actions -->
                     <div class="mt-1.5 inline-flex w-full items-center justify-between">
                         <mat-checkbox class="-ml-2" [color]="'primary'" [formControlName]="'rememberMe'">
-                            Remember me
+                            {{ t('remember-me') }}
                         </mat-checkbox>
                         <languages></languages>
                         <a class="text-md font-medium text-primary-500 hover:underline"
-                            [routerLink]="['/forgot-password']">Forgot password?
+                            [routerLink]="['/forgot-password']">{{ t('forgot-password') }}
                         </a>
                     </div>
 
@@ -75,7 +75,7 @@
                     <button class="fuse-mat-button-large mt-6 w-full" mat-flat-button [color]="'primary'"
                         [disabled]="signInForm.disabled" (click)="signIn()">
                         @if (!signInForm.disabled) {
-                        <span> Sign in </span>
+                        <span>{{ t('sign-in') }}</span>
                         }
                         @if (signInForm.disabled) {
                         <mat-progress-spinner [diameter]="24" [mode]="'indeterminate'"></mat-progress-spinner>
@@ -85,7 +85,7 @@
                     <!-- Separator -->
                     <div class="mt-8 flex items-center">
                         <div class="mt-px flex-auto border-t"></div>
-                        <div class="text-secondary mx-2">Or continue with</div>
+                        <div class="text-secondary mx-2">{{ t('continue-with') }}</div>
                         <div class="mt-px flex-auto border-t"></div>
                     </div>
 
@@ -131,13 +131,11 @@
             <!-- Content -->
             <div class="relative z-10 w-full max-w-2xl">
                 <div class="text-7xl font-bold leading-none text-gray-100">
-                    <div>Welcome to</div>
-                    <div>our community</div>
+                    <div class="mb-3">{{ t('welcome-to') }}</div>
+                    <div class="mb-3">{{ t('our-community') }}</div>
                 </div>
                 <div class="mt-6 text-lg leading-6 tracking-tight text-gray-400">
-                    Fuse helps developers to build organized and well coded
-                    dashboards full of beautiful and rich modules. Join us and start
-                    building your application today.
+                    {{ t('fuse-helps') }}
                 </div>
                 <div class="mt-8 flex items-center">
                     <div class="flex flex-0 items-center -space-x-1.5">
@@ -151,7 +149,7 @@
                             src="images/avatars/male-16.jpg" />
                     </div>
                     <div class="ml-4 font-medium tracking-tight text-gray-400">
-                        More than 17k people joined us, it's your turn
+                        {{ t('more-than-description') }}
                     </div>
                 </div>
             </div>

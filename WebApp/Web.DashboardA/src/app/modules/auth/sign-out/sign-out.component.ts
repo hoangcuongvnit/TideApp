@@ -2,13 +2,14 @@ import { I18nPluralPipe } from '@angular/common';
 import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { AuthService } from 'app/core/auth/auth.service';
+import { TranslocoModule } from '@jsverse/transloco';
 import { Subject, finalize, takeUntil, takeWhile, tap, timer } from 'rxjs';
 
 @Component({
     selector: 'auth-sign-out',
     templateUrl: './sign-out.component.html',
     encapsulation: ViewEncapsulation.None,
-    imports: [RouterLink, I18nPluralPipe],
+    imports: [RouterLink, I18nPluralPipe, TranslocoModule],
 })
 export class AuthSignOutComponent implements OnInit, OnDestroy {
     countdown: number = 5;

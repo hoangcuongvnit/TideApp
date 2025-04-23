@@ -1,7 +1,6 @@
 import { NgTemplateOutlet } from '@angular/common';
 import {
     ChangeDetectionStrategy,
-    ChangeDetectorRef,
     Component,
     OnDestroy,
     OnInit,
@@ -33,7 +32,6 @@ export class LanguagesComponent implements OnInit, OnDestroy {
      * Constructor
      */
     constructor(
-        private _changeDetectorRef: ChangeDetectorRef,
         private _fuseNavigationService: FuseNavigationService,
         private _translocoService: TranslocoService
     ) {}
@@ -61,7 +59,7 @@ export class LanguagesComponent implements OnInit, OnDestroy {
         // Set the country iso codes for languages for flags
         this.flagCodes = {
             en: 'us',
-            tr: 'tr',
+            vi: 'vi',
         };
     }
 

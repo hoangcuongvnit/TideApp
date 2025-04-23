@@ -17,6 +17,7 @@ import { Router, RouterLink } from '@angular/router';
 import { fuseAnimations } from '@fuse/animations';
 import { FuseAlertComponent, FuseAlertType } from '@fuse/components/alert';
 import { AuthService } from 'app/core/auth/auth.service';
+import { TranslocoModule } from '@jsverse/transloco';
 
 @Component({
     selector: 'auth-sign-up',
@@ -34,6 +35,7 @@ import { AuthService } from 'app/core/auth/auth.service';
         MatIconModule,
         MatCheckboxModule,
         MatProgressSpinnerModule,
+        TranslocoModule,
     ],
 })
 export class AuthSignUpComponent implements OnInit {

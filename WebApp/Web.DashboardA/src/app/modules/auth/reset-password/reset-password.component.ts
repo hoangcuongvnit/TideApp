@@ -17,6 +17,7 @@ import { fuseAnimations } from '@fuse/animations';
 import { FuseAlertComponent, FuseAlertType } from '@fuse/components/alert';
 import { FuseValidators } from '@fuse/validators';
 import { AuthService } from 'app/core/auth/auth.service';
+import { TranslocoModule } from '@jsverse/transloco';
 import { finalize } from 'rxjs';
 
 @Component({
@@ -34,6 +35,7 @@ import { finalize } from 'rxjs';
         MatIconModule,
         MatProgressSpinnerModule,
         RouterLink,
+        TranslocoModule,
     ],
 })
 export class AuthResetPasswordComponent implements OnInit {

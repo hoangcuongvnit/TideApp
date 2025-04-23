@@ -3,37 +3,53 @@ import { FuseNavigationItem } from '@fuse/components/navigation';
 
 export const defaultNavigation: FuseNavigationItem[] = [
     {
-        id   : 'example',
-        title: 'Example',
+        id   : 'dashboard',
+        title: 'Dashboards',
         type : 'basic',
         icon : 'heroicons_outline:chart-pie',
-        link : '/example'
+        link : '/dashboard'
+    },
+    {
+        id: 'users',
+        title: 'Users',
+        subtitle: 'Manage your users',
+        type: 'group',
+        icon: 'heroicons_outline:user-group',
+        children: [
+            {
+                id: 'users.user',
+                title: 'User',
+                type: 'basic',
+                icon: 'heroicons_outline:user-circle',
+                link: '/users/user',
+            },
+        ],
     }
 ];
 export const compactNavigation: FuseNavigationItem[] = [
     {
-        id   : 'example',
-        title: 'Example',
+        id   : 'dashboard',
+        title: 'Dashboards',
         type : 'basic',
         icon : 'heroicons_outline:chart-pie',
-        link : '/example'
+        link : '/dashboard'
     }
 ];
 export const futuristicNavigation: FuseNavigationItem[] = [
     {
-        id   : 'example',
-        title: 'Example',
+        id   : 'dashboard',
+        title: 'Dashboards',
         type : 'basic',
         icon : 'heroicons_outline:chart-pie',
-        link : '/example'
+        link : '/dashboard'
     }
 ];
 export const horizontalNavigation: FuseNavigationItem[] = [
     {
-        id   : 'example',
-        title: 'Example',
+        id   : 'dashboard',
+        title: 'Dashboards',
         type : 'basic',
         icon : 'heroicons_outline:chart-pie',
-        link : '/example'
+        link : '/dashboard'
     }
 ];

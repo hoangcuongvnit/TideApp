@@ -52,5 +52,9 @@
     "settings.classic": "Classic",
     "notifications": "Notifications",
     "no-notifications": "No notifications",
-    "notifications-placeholder": "When you have notifications, they will appear here."
+    "notifications-placeholder": "When you have notifications, they will appear here.",
+    "reset-your-password": "Reset your password",
+    "create-new-password": "Create a new password for your account",
+    "password-confirm": "Password (Confirm)",
+    "passwords-must-match": "Passwords must match"
 }

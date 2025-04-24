@@ -23,6 +23,13 @@ export const defaultNavigation: FuseNavigationItem[] = [
                 icon: 'heroicons_outline:user-circle',
                 link: '/users/user',
             },
+            {
+                id: 'users.create',
+                title: 'Create User',
+                type: 'basic',
+                icon: 'heroicons_outline:user-plus',
+                link: '/users/create-user',
+            },
         ],
     }
 ];

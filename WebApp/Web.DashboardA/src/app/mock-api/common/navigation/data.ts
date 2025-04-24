@@ -33,6 +33,22 @@ export const compactNavigation: FuseNavigationItem[] = [
         type : 'basic',
         icon : 'heroicons_outline:chart-pie',
         link : '/dashboard'
+    },
+    {
+        id: 'users',
+        title: 'Users',
+        subtitle: 'Manage your users',
+        type: 'group',
+        icon: 'heroicons_outline:user-group',
+        children: [
+            {
+                id: 'users.user',
+                title: 'User',
+                type: 'basic',
+                icon: 'heroicons_outline:user-circle',
+                link: '/users/user',
+            },
+        ],
     }
 ];
 export const futuristicNavigation: FuseNavigationItem[] = [
@@ -42,6 +58,22 @@ export const futuristicNavigation: FuseNavigationItem[] = [
         type : 'basic',
         icon : 'heroicons_outline:chart-pie',
         link : '/dashboard'
+    },
+    {
+        id: 'users',
+        title: 'Users',
+        subtitle: 'Manage your users',
+        type: 'group',
+        icon: 'heroicons_outline:user-group',
+        children: [
+            {
+                id: 'users.user',
+                title: 'User',
+                type: 'basic',
+                icon: 'heroicons_outline:user-circle',
+                link: '/users/user',
+            },
+        ],
     }
 ];
 export const horizontalNavigation: FuseNavigationItem[] = [
@@ -51,5 +83,21 @@ export const horizontalNavigation: FuseNavigationItem[] = [
         type : 'basic',
         icon : 'heroicons_outline:chart-pie',
         link : '/dashboard'
+    },
+    {
+        id: 'users',
+        title: 'Users',
+        subtitle: 'Manage your users',
+        type: 'group',
+        icon: 'heroicons_outline:user-group',
+        children: [
+            {
+                id: 'users.user',
+                title: 'User',
+                type: 'basic',
+                icon: 'heroicons_outline:user-circle',
+                link: '/users/user',
+            },
+        ],
     }
 ];

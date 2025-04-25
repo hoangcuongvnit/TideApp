@@ -89,7 +89,43 @@ export const defaultNavigation: FuseNavigationItem[] = [
                     },
                 ],
             },
+            {
+                id: 'page',
+                title: 'Pages',
+                type: 'collapsable',
+                icon: 'heroicons_outline:document-chart-bar',
+                children: [
+                    {
+                        id: 'page.list',
+                        title: 'Page',
+                        type: 'basic',
+                        icon: 'heroicons_outline:document-text',
+                        link: '/page/list',
+                    },
+                    {
+                        id: 'page.create',
+                        title: 'Create Page',
+                        type: 'basic',
+                        icon: 'heroicons_outline:document-plus',
+                        link: '/page/create-page',
+                    },
+                ],
+            },
         ],
+    },
+    {
+        id: 'common',
+        title: 'Common',
+        type: 'group',
+        children: [
+            {
+                id: 'media',
+                title: 'Media',
+                type: 'basic',
+                icon: 'heroicons_outline:folder-minus',
+                link: '/media/list'
+            },
+        ]
     },
     {
         id: 'system',

@@ -99,6 +99,17 @@ export const appRoutes: Route[] = [
                 {path: 'create-tag', loadChildren: () => import('app/modules/admin/blog/tag/detail/detail.routes')},
                 {path: 'edit-tag', loadChildren: () => import('app/modules/admin/blog/tag/detail/detail.routes')},
             ]},
+            // Pages
+            {path: 'page', children: [
+                {path: 'list', loadChildren: () => import('app/modules/admin/blog/page/page/page.routes')},
+                {path: 'create-page', loadChildren: () => import('app/modules/admin/blog/page/detail/detail.routes')},
+                {path: 'edit-page', loadChildren: () => import('app/modules/admin/blog/page/detail/detail.routes')},
+            ]},
+            // Media
+            {path: 'media', children: [
+                {path: 'list', loadChildren: () => import('app/modules/admin/media/media/media.routes')},
+                {path: 'add', loadChildren: () => import('app/modules/admin/media/detail/detail.routes')},
+            ]},
             // Roles
             {path: 'roles', children: [
                 {path: 'role', loadChildren: () => import('app/modules/admin/roles/role/role.routes')},

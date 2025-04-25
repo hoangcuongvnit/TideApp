@@ -1,9 +1,9 @@
 import { Routes } from '@angular/router';
-import { RoleDetailComponent } from 'app/modules/admin/roles/detail/detail.component';
+import { DetailComponent } from 'app/modules/admin/roles/detail/detail.component';
 
 export default [
     {
         path     : '',
-        component: RoleDetailComponent,
+        component: DetailComponent,
     },
 ] as Routes;

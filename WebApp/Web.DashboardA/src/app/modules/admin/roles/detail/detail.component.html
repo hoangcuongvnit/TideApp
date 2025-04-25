@@ -1,9 +1,27 @@
-<div class="flex min-w-0 flex-auto flex-col">
+<div class="flex min-w-0 flex-auto flex-col role-detail">
     <!-- Main -->
     <div class="flex-auto p-6 sm:p-10">
-        <!-- CONTENT GOES HERE -->
-        <div class="h-400 max-h-400 min-h-400 rounded-2xl border-2 border-dashed border-gray-300" >
-            Role details
-        </div>
+        <ng-container *transloco="let t">
+            <!-- Role Creation Form -->
+            <form [formGroup]="roleForm" #roleDetailNgForm="ngForm" >
+                <fuse-alert *ngIf="showAlert" [type]="alert.type" [message]="alert.message"></fuse-alert>
+            
+                <mat-form-field>
+                    <mat-label>Role Name</mat-label>
+                    <input matInput formControlName="name" required />
+                    <mat-error *ngIf="roleForm.get('name').hasError('required')">
+                        Role name is required
+                    </mat-error>
+                </mat-form-field>
+            
+                <mat-form-field>
+                    <mat-label>Description</mat-label>
+                    <textarea matInput formControlName="description"></textarea>
+                </mat-form-field>
+            
+            
+                <button mat-raised-button color="primary" [disabled]="roleForm.invalid">Save</button>
+            </form>
+        </ng-container>
     </div>
 </div>

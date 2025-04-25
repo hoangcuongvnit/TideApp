@@ -1,27 +1,81 @@
 <div class="flex min-w-0 flex-auto flex-col role-detail">
-    <!-- Main -->
-    <div class="flex-auto p-6 sm:p-10">
-        <ng-container *transloco="let t">
-            <!-- Role Creation Form -->
-            <form [formGroup]="roleForm" #roleDetailNgForm="ngForm" >
-                <fuse-alert *ngIf="showAlert" [type]="alert.type" [message]="alert.message"></fuse-alert>
-            
-                <mat-form-field>
-                    <mat-label>Role Name</mat-label>
-                    <input matInput formControlName="name" required />
-                    <mat-error *ngIf="roleForm.get('name').hasError('required')">
-                        Role name is required
-                    </mat-error>
+    <div class="bg-card flex flex-0 flex-col border-b dark:bg-transparent sm:justify-between">
+        <!-- Header -->
+        <div
+            class="relative flex flex-0 flex-col border-b px-6 py-8 sm:flex-row sm:items-center sm:justify-between md:px-8">
+            <!-- Loader -->
+            @if (isLoading) {
+            <div class="absolute inset-x-0 bottom-0">
+                <mat-progress-bar [mode]="'indeterminate'"></mat-progress-bar>
+            </div>
+            }
+            <div>
+                <!-- Breadcrumbs -->
+                <div class="flex flex-wrap items-center font-medium">
+                    <div>
+                        <a class="whitespace-nowrap text-primary-500">User Interface</a>
+                    </div>
+                    <div class="ml-1 flex items-center whitespace-nowrap">
+                        <mat-icon class="text-secondary icon-size-5"
+                            [svgIcon]="'heroicons_mini:chevron-right'"></mat-icon>
+                        <a class="ml-1 text-primary-500">Forms</a>
+                    </div>
+                </div>
+                <!-- Title -->
+                <div class="text-4xl font-extrabold tracking-tight">Create role</div>
+            </div>
+            <!-- Actions -->
+            <div class="mt-6 flex shrink-0 items-center sm:ml-4 sm:mt-0">
+                <!-- Search -->
+                <mat-form-field class="fuse-mat-dense fuse-mat-rounded min-w-64" [subscriptSizing]="'dynamic'">
+                    <mat-icon class="icon-size-5" matPrefix [svgIcon]="'heroicons_solid:magnifying-glass'"></mat-icon>
+                    <input matInput [formControl]="searchInputControl" [autocomplete]="'off'"
+                        [placeholder]="'Search products'" />
                 </mat-form-field>
-            
-                <mat-form-field>
-                    <mat-label>Description</mat-label>
-                    <textarea matInput formControlName="description"></textarea>
-                </mat-form-field>
-            
-            
-                <button mat-raised-button color="primary" [disabled]="roleForm.invalid">Save</button>
-            </form>
-        </ng-container>
+                <!-- Add product button -->
+                <button class="ml-4" mat-flat-button [color]="'primary'">
+                    <mat-icon [svgIcon]="'heroicons_outline:plus'"></mat-icon>
+                    <span class="ml-2 mr-1">Add</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="flex-auto p-6">
+            <ng-container *transloco="let t">
+                <div class="max-w-3xl">
+                    <!-- Role Creation Form -->
+                    <form [formGroup]="roleForm" #roleDetailNgForm="ngForm"
+                        class="bg-card mt-8 flex flex-col overflow-hidden rounded-2xl p-8 pb-4 shadow">
+                        <fuse-alert *ngIf="showAlert" [type]="alert.type" [message]="alert.message"></fuse-alert>
+
+                        <mat-form-field>
+                            <mat-label>Role Name</mat-label>
+                            <input matInput formControlName="name" required />
+                            <mat-error *ngIf="roleForm.get('name').hasError('required')">
+                                Role name is required
+                            </mat-error>
+                        </mat-form-field>
+
+                        <mat-form-field>
+                            <mat-label>Description</mat-label>
+                            <textarea matInput formControlName="description"></textarea>
+                        </mat-form-field>
+
+                        <!-- Permissions Section -->
+                        <div class="permissions-section">
+                            <h3>Permissions</h3>
+                            <div formArrayName="permissions">
+                                <mat-checkbox *ngFor="let permission of permissions; let i = index"
+                                    [formControlName]="i">
+                                    {{ permission }}
+                                </mat-checkbox>
+                            </div>
+                        </div>
+
+                        <button mat-raised-button color="primary" [disabled]="roleForm.invalid">Save</button>
+                    </form>
+                </div>
+            </ng-container>
+        </div>
     </div>
 </div>

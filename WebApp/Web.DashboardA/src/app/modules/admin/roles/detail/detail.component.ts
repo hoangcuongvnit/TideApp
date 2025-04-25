@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { UntypedFormBuilder, UntypedFormGroup, Validators, NgForm } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators, NgForm, UntypedFormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { FuseAlertType } from '@fuse/components/alert';
 import { RoleService } from 'app/modules/admin/roles/detail/role.service';
@@ -10,6 +10,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 @Component({
     selector: 'app-role-detail',
@@ -23,6 +25,8 @@ import { MatButtonModule } from '@angular/material/button';
         MatInputModule,
         MatCheckboxModule,
         MatButtonModule,
+        MatIconModule,
+        MatProgressBarModule,
     ],
 })
 export class DetailComponent implements OnInit {
@@ -34,6 +38,8 @@ export class DetailComponent implements OnInit {
     };
     roleForm: UntypedFormGroup;
     showAlert: boolean = false;
+    isLoading: boolean = false;
+    searchInputControl: UntypedFormControl = new UntypedFormControl();
     permissions: string[] = ['Read', 'Write', 'Delete', 'Update'];
 
     constructor(

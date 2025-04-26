@@ -1,5 +1,5 @@
 <div class="flex min-w-0 flex-auto flex-col role-detail">
-    <div class="bg-card flex flex-0 flex-col border-b dark:bg-transparent sm:justify-between">
+    <div class="flex flex-0 flex-col dark:bg-transparent sm:justify-between">
         <!-- Header -->
         <div
             class="relative flex flex-0 flex-col border-b px-6 py-8 sm:flex-row sm:items-center sm:justify-between md:px-8">
@@ -13,12 +13,12 @@
                 <!-- Breadcrumbs -->
                 <div class="flex flex-wrap items-center font-medium">
                     <div>
-                        <a class="whitespace-nowrap text-primary-500">User Interface</a>
+                        <a class="whitespace-nowrap text-primary-500">Role</a>
                     </div>
                     <div class="ml-1 flex items-center whitespace-nowrap">
                         <mat-icon class="text-secondary icon-size-5"
                             [svgIcon]="'heroicons_mini:chevron-right'"></mat-icon>
-                        <a class="ml-1 text-primary-500">Forms</a>
+                        <a class="ml-1 text-primary-500">Create</a>
                     </div>
                 </div>
                 <!-- Title -->
@@ -45,14 +45,17 @@
                 <div class="max-w-3xl">
                     <!-- Role Creation Form -->
                     <form [formGroup]="roleForm" #roleDetailNgForm="ngForm"
-                        class="bg-card mt-8 flex flex-col overflow-hidden rounded-2xl p-8 pb-4 shadow">
+                        class="mt-8 flex flex-col overflow-hidden rounded-2xl p-8 pb-4 shadow">
                         <fuse-alert *ngIf="showAlert" [type]="alert.type" [message]="alert.message"></fuse-alert>
 
                         <mat-form-field>
                             <mat-label>Role Name</mat-label>
-                            <input matInput formControlName="name" required />
+                            <input matInput formControlName="name" required (blur)="checkRoleName($event)" />
                             <mat-error *ngIf="roleForm.get('name').hasError('required')">
                                 Role name is required
+                            </mat-error>
+                            <mat-error *ngIf="roleForm.get('name').hasError('roleNameTaken')">
+                                Role name is already taken
                             </mat-error>
                         </mat-form-field>
 

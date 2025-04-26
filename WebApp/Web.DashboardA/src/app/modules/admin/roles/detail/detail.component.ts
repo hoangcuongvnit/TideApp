@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { UntypedFormBuilder, UntypedFormGroup, Validators, NgForm, UntypedFormControl } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators, NgForm, UntypedFormControl, AsyncValidatorFn, AbstractControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { FuseAlertType } from '@fuse/components/alert';
 import { RoleService } from 'app/modules/admin/roles/detail/role.service';
@@ -40,20 +40,23 @@ export class DetailComponent implements OnInit {
     showAlert: boolean = false;
     isLoading: boolean = false;
     searchInputControl: UntypedFormControl = new UntypedFormControl();
-    permissions: string[] = ['Read', 'Write', 'Delete', 'Update'];
+    permissions: string[] = ['Permission 1', 'Permission 2', 'Permission 3'];
 
     constructor(
         private fb: UntypedFormBuilder,
         private roleService: RoleService,
         private router: Router
-    ) {}
+    ) { }
 
     ngOnInit(): void {
         // Initialize the form
         this.roleForm = this.fb.group({
-            name: ['', Validators.required],
+            name: [
+                '',
+                [Validators.required],
+            ],
             description: [''],
-            permissions: [[]],
+            permissions: this.fb.array(this.permissions.map(() => this.fb.control(false))),
         });
     }
 
@@ -97,5 +100,24 @@ export class DetailComponent implements OnInit {
                 this.showAlert = true;
             }
         );
+    }
+
+    checkRoleName(event: FocusEvent): void {
+        const roleName = this.roleForm.get('name')?.value;
+        if (roleName) {
+            this.roleService.verifyRoleName(roleName).subscribe({
+                next: (isTaken: boolean) => {
+                    if (isTaken) {
+                        this.roleForm.get('name')?.setErrors({ roleNameTaken: true });
+                    } else {
+                        this.roleForm.get('name')?.setErrors(null);
+                    }
+                },
+                error: () => {
+                    // Handle API error gracefully
+                    this.roleForm.get('name')?.setErrors({ roleNameTaken: true });
+                }
+            });
+        }
     }
 }

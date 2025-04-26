@@ -1,7 +1,7 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 
 @Component({
-    selector     : 'app-post-detail',
+    selector     : 'app-file-detail',
     standalone   : true,
     templateUrl  : './detail.component.html',
     encapsulation: ViewEncapsulation.None,

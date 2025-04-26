@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormGroup, Validators, NgForm, UntypedFormControl, AsyncValidatorFn, AbstractControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { FuseAlertType } from '@fuse/components/alert';
-import { RoleService } from 'app/modules/admin/roles/detail/role.service';
+import { RolesService } from 'app/modules/admin/roles/roles.service';
 import { TranslocoModule } from '@jsverse/transloco';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -39,12 +39,11 @@ export class DetailComponent implements OnInit {
     roleForm: UntypedFormGroup;
     showAlert: boolean = false;
     isLoading: boolean = false;
-    searchInputControl: UntypedFormControl = new UntypedFormControl();
     permissions: string[] = ['Permission 1', 'Permission 2', 'Permission 3'];
 
     constructor(
         private fb: UntypedFormBuilder,
-        private roleService: RoleService,
+        private rolesService: RolesService,
         private router: Router
     ) { }
 
@@ -73,7 +72,7 @@ export class DetailComponent implements OnInit {
         this.showAlert = false;
 
         // Submit the form data
-        this.roleService.saveRole(this.roleForm.value).subscribe(
+        this.rolesService.saveRole(this.roleForm.value).subscribe(
             () => {
                 // Show success alert
                 this.alert = {
@@ -105,7 +104,7 @@ export class DetailComponent implements OnInit {
     checkRoleName(event: FocusEvent): void {
         const roleName = this.roleForm.get('name')?.value;
         if (roleName) {
-            this.roleService.verifyRoleName(roleName).subscribe({
+            this.rolesService.verifyRoleName(roleName).subscribe({
                 next: (isTaken: boolean) => {
                     if (isTaken) {
                         this.roleForm.get('name')?.setErrors({ roleNameTaken: true });

@@ -1,7 +1,7 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 
 @Component({
-    selector     : 'detail',
+    selector     : 'app-user-detail',
     standalone   : true,
     templateUrl  : './detail.component.html',
     encapsulation: ViewEncapsulation.None,

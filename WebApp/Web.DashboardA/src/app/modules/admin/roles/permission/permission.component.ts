@@ -1,12 +1,12 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 
 @Component({
-    selector     : 'app-post-detail',
+    selector     : 'app-permissions',
     standalone   : true,
-    templateUrl  : './detail.component.html',
+    templateUrl  : './permission.component.html',
     encapsulation: ViewEncapsulation.None,
 })
-export class DetailComponent
+export class PermissionComponent
 {
     /**
      * Constructor

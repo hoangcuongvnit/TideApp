@@ -1,12 +1,12 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 
 @Component({
-    selector     : 'app-post-detail',
+    selector     : 'app-categories',
     standalone   : true,
-    templateUrl  : './detail.component.html',
+    templateUrl  : './list.component.html',
     encapsulation: ViewEncapsulation.None,
 })
-export class DetailComponent
+export class ListComponent
 {
     /**
      * Constructor

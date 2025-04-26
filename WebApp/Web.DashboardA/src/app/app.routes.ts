@@ -74,49 +74,16 @@ export const appRoutes: Route[] = [
             initialData: initialDataResolver
         },
         children: [
+            // dashboard
             {path: 'dashboard', loadChildren: () => import('app/modules/admin/dashboard/dashboard.routes')},
+            // blog
+            {path: 'blog', loadChildren: () => import('app/modules/admin/blog/blog.routes')},
+            // files
+            {path: 'files', loadChildren: () => import('app/modules/admin/files/files.routes')},
             // Users
-            {path: 'users', children: [
-                {path: 'user', loadChildren: () => import('app/modules/admin/users/user/user.routes')},
-                {path: 'create-user', loadChildren: () => import('app/modules/admin/users/detail/detail.routes')},
-                {path: 'edit-user', loadChildren: () => import('app/modules/admin/users/detail/detail.routes')},
-            ]},
-            // Posts
-            {path: 'posts', children: [
-                {path: 'list', loadChildren: () => import('app/modules/admin/blog/posts/posts/posts.routes')},
-                {path: 'create-posts', loadChildren: () => import('app/modules/admin/blog/posts/detail/detail.routes')},
-                {path: 'edit-posts', loadChildren: () => import('app/modules/admin/blog/posts/detail/detail.routes')},
-            ]},
-            // Category
-            {path: 'category', children: [
-                {path: 'list', loadChildren: () => import('app/modules/admin/blog/category/category/category.routes')},
-                {path: 'create-category', loadChildren: () => import('app/modules/admin/blog/category/detail/detail.routes')},
-                {path: 'edit-category', loadChildren: () => import('app/modules/admin/blog/category/detail/detail.routes')},
-            ]},
-            // Tag
-            {path: 'tags', children: [
-                {path: 'list', loadChildren: () => import('app/modules/admin/blog/tag/tag/tag.routes')},
-                {path: 'create-tag', loadChildren: () => import('app/modules/admin/blog/tag/detail/detail.routes')},
-                {path: 'edit-tag', loadChildren: () => import('app/modules/admin/blog/tag/detail/detail.routes')},
-            ]},
-            // Pages
-            {path: 'pages', children: [
-                {path: 'list', loadChildren: () => import('app/modules/admin/blog/page/page/page.routes')},
-                {path: 'create-page', loadChildren: () => import('app/modules/admin/blog/page/detail/detail.routes')},
-                {path: 'edit-page', loadChildren: () => import('app/modules/admin/blog/page/detail/detail.routes')},
-            ]},
-            // Media
-            {path: 'media', children: [
-                {path: 'list', loadChildren: () => import('app/modules/admin/media/media/media.routes')},
-                {path: 'add', loadChildren: () => import('app/modules/admin/media/detail/detail.routes')},
-            ]},
+            {path: 'users', loadChildren: () => import('app/modules/admin/users/users.routes')},
             // Roles
-            {path: 'roles', children: [
-                {path: 'role', loadChildren: () => import('app/modules/admin/roles/role/role.routes')},
-                {path: 'create-role', loadChildren: () => import('app/modules/admin/roles/detail/detail.routes')},
-                {path: 'edit-role', loadChildren: () => import('app/modules/admin/roles/detail/detail.routes')},
-                {path: 'permissions', loadChildren: () => import('app/modules/admin/permission/permission.routes')},
-            ]},
+            {path: 'roles', loadChildren: () => import('app/modules/admin/roles/roles.routes')},
             // Settings
             {path: 'settings', loadChildren: () => import('app/modules/admin/setting/setting.routes')},
         ]

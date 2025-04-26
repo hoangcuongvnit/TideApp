@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { UntypedFormBuilder, UntypedFormGroup, Validators, NgForm, UntypedFormControl, AsyncValidatorFn, AbstractControl } from '@angular/forms';
+import { UntypedFormBuilder, Validators, NgForm, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { FuseAlertType } from '@fuse/components/alert';
 import { RolesService } from 'app/modules/admin/roles/roles.service';
@@ -12,6 +12,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { RoleForm } from '../role.types';
 
 @Component({
     selector: 'app-role-detail',
@@ -36,7 +37,7 @@ export class DetailComponent implements OnInit {
         type: 'success',
         message: '',
     };
-    roleForm: UntypedFormGroup;
+    roleForm: FormGroup<RoleForm>;
     showAlert: boolean = false;
     isLoading: boolean = false;
     permissions: string[] = ['Permission 1', 'Permission 2', 'Permission 3'];

@@ -1,14 +1,24 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
+import { BehaviorSubject, Observable, of, tap } from 'rxjs';
+import { RoleListResponse } from './role.types';
 
 @Injectable({
     providedIn: 'root',
 })
 export class RolesService {
-    private readonly apiUrl = '/api/roles'; // Replace with your actual API endpoint
+    private readonly apiUrl = 'api/common/roles'; // Replace with your actual API endpoint
+    private _rolelist: BehaviorSubject<RoleListResponse | null> =
+        new BehaviorSubject(null);
 
     constructor(private http: HttpClient) { }
+
+    /**
+     * Getter for brands
+     */
+    get roleList$(): Observable<RoleListResponse> {
+        return this._rolelist.asObservable();
+    }
 
     /**
      * Save a role
@@ -29,8 +39,13 @@ export class RolesService {
     /**
      * Get all roles
      */
-    getAllRoles(): Observable<any[]> {
-        return this.http.get<any[]>(`${this.apiUrl}`);
+    getAllRoles(): Observable<RoleListResponse> {
+        return this.http.get<RoleListResponse>(`${this.apiUrl}`)
+            .pipe(
+                tap((roleList) => {
+                    this._rolelist.next(roleList);
+                })
+            );
     }
 
     /**

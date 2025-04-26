@@ -16,6 +16,7 @@ import { NotificationsMockApi } from 'app/mock-api/common/notifications/api';
 import { SearchMockApi } from 'app/mock-api/common/search/api';
 import { ShortcutsMockApi } from 'app/mock-api/common/shortcuts/api';
 import { UserMockApi } from 'app/mock-api/common/user/api';
+import { RolesMockApi } from 'app/mock-api/common/roles/api';
 import { AnalyticsMockApi } from 'app/mock-api/dashboards/analytics/api';
 import { CryptoMockApi } from 'app/mock-api/dashboards/crypto/api';
 import { FinanceMockApi } from 'app/mock-api/dashboards/finance/api';
@@ -48,4 +49,5 @@ export class MockApiService {
     shortcutsMockApi = inject(ShortcutsMockApi);
     tasksMockApi = inject(TasksMockApi);
     userMockApi = inject(UserMockApi);
+    rolesMockApi = inject(RolesMockApi);
 }

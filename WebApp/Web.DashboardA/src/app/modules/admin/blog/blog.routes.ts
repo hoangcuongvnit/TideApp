@@ -12,7 +12,7 @@ export default [
     },
     {
         path: 'pages',
-        loadChildren: () => import('./pages/pages.routes').then(m => m.default),
+        loadChildren: () => import('./pages/pages.routes'),
     },
     {
         path: 'categories',

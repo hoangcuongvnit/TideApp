@@ -42,7 +42,7 @@
 
         <div class="flex-auto p-6">
             <ng-container *transloco="let t">
-                <div class="flex flex-col rounded-2xl shadow">
+                <fuse-card class="flex flex-col w-full shadow">
                     <!-- Roles Table -->
                     <mat-table [dataSource]="roles" class="mat-elevation-z8" *ngIf="roles.length > 0">
                         <!-- Name Column -->
@@ -75,7 +75,7 @@
                         <ng-container matColumnDef="actions">
                             <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
                             <mat-cell *matCellDef="let role">
-                                <button mat-icon-button (click)="editRole(role)">
+                                <button mat-icon-button [routerLink]="['/roles/edit', role.id]">
                                     <mat-icon>edit</mat-icon>
                                 </button>
                                 <button mat-icon-button color="warn" (click)="deleteRole(role.id)">
@@ -92,7 +92,7 @@
                     <div *ngIf="roles.length === 0" class="text-center text-gray-500 mt-4">
                         There are no roles.
                     </div>
-                </div>
+                </fuse-card>
             </ng-container>
         </div>
     </div>

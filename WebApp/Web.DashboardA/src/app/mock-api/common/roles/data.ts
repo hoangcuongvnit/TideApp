@@ -1,7 +1,7 @@
 /* eslint-disable */
 import { faker } from '@faker-js/faker';
 
-export const roles = Array.from({ length: 100 }, () => ({
+export const roles = Array.from({ length: 5 }, () => ({
     id: faker.string.uuid(),
     name: faker.name.fullName(),
     description: faker.lorem.sentence(),

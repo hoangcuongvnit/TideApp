@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { UntypedFormBuilder, Validators, NgForm, FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FuseAlertType } from '@fuse/components/alert';
 import { RolesService } from 'app/modules/admin/roles/roles.service';
 import { TranslocoModule } from '@jsverse/transloco';
@@ -11,8 +11,11 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { MatDialogModule } from '@angular/material/dialog';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { RoleForm } from '../role.types';
+import { MatDialog } from '@angular/material/dialog';
+import { ErrorDialogComponent } from 'app/layout/common/error-dialog/error-dialog.component';
 
 @Component({
     selector: 'app-role-detail',
@@ -28,6 +31,7 @@ import { RoleForm } from '../role.types';
         MatButtonModule,
         MatIconModule,
         MatProgressBarModule,
+        MatDialogModule,
     ],
 })
 export class DetailComponent implements OnInit {
@@ -41,11 +45,14 @@ export class DetailComponent implements OnInit {
     showAlert: boolean = false;
     isLoading: boolean = false;
     permissions: string[] = ['Permission 1', 'Permission 2', 'Permission 3'];
+    navigationTo: string = '/roles/list';
 
     constructor(
         private fb: UntypedFormBuilder,
         private rolesService: RolesService,
-        private router: Router
+        private router: Router,
+        private route: ActivatedRoute,
+        private dialog: MatDialog // Inject MatDialog
     ) { }
 
     ngOnInit(): void {
@@ -57,6 +64,51 @@ export class DetailComponent implements OnInit {
             ],
             description: [''],
             permissions: this.fb.array(this.permissions.map(() => this.fb.control(false))),
+        });
+
+        // Check if we are in edit mode
+        const roleId = this.route.snapshot.paramMap.get('id');
+        if (roleId) {
+            this.loadRole(roleId);
+        }
+    }
+
+    loadRole(roleId: string): void {
+        this.isLoading = true;
+
+        this.rolesService.getRoleById(roleId).subscribe({
+            next: (role) => {
+                if (role) {
+                    this.roleForm.patchValue({
+                        name: role.name,
+                        description: role.description,
+                        permissions: role.permissions.filter((permission) =>
+                            this.permissions.includes(permission)
+                        ),
+                    });
+                } else {
+                    this.openErrorDialog('Role not found. Please check the ID and try again.');
+                }
+                this.isLoading = false;
+            },
+            error: () => {
+                this.isLoading = false;
+                this.openErrorDialog('Failed to load role. Please try again.');
+            },
+        });
+    }
+
+    openErrorDialog(message: string): void {
+        const dialogRef = this.dialog.open(ErrorDialogComponent, {
+            width: '400px',
+            data: {
+                message: message
+            },
+        });
+
+        // Trigger redirect logic after the dialog is closed
+        dialogRef.afterClosed().subscribe(() => {
+            this.router.navigate([this.navigationTo]);
         });
     }
 

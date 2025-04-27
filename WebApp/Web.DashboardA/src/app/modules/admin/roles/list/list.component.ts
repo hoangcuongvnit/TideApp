@@ -12,6 +12,7 @@ import { RouterModule } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
+import { FuseCardComponent } from '@fuse/components/card';
 import { Role, RoleListItem, RoleListResponse } from '../role.types';
 import { Subject, takeUntil } from 'rxjs';
 
@@ -31,6 +32,7 @@ import { Subject, takeUntil } from 'rxjs';
         MatProgressBarModule,
         MatTableModule,
         RouterModule,
+        FuseCardComponent,
     ],
 })
 export class ListComponent implements OnInit, AfterViewInit, OnDestroy {
@@ -76,10 +78,6 @@ export class ListComponent implements OnInit, AfterViewInit, OnDestroy {
             this.roles = roleListResponse.roles;
             this.dataSource.data = roleListResponse.roles;
         });
-    }
-
-    editRole(role: Role): void {
-        // Navigate to edit role page
     }
 
     deleteRole(roleId: string): void {

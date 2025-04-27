@@ -37,11 +37,16 @@
         <div class="flex-auto p-6">
             <ng-container *transloco="let t">
                 <div class="max-w-3xl">
+                    <!-- Alert -->
+                    @if (showAlert) {
+                    <fuse-alert class="mt-8" [appearance]="'outline'" [showIcon]="false" [type]="alert.type"
+                        [@shake]="alert.type === 'error'">
+                        {{ alert.message }}
+                    </fuse-alert>
+                    }
                     <!-- Role Creation Form -->
                     <form [formGroup]="roleForm" #roleDetailNgForm="ngForm"
                         class="mt-8 flex flex-col overflow-hidden rounded-2xl p-8 pb-4 shadow">
-                        <fuse-alert *ngIf="showAlert" [type]="alert.type" [message]="alert.message"></fuse-alert>
-
                         <mat-form-field>
                             <mat-label>Role Name</mat-label>
                             <input matInput formControlName="name" required (blur)="checkRoleName($event)" />

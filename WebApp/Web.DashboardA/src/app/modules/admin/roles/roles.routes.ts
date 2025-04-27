@@ -25,6 +25,12 @@ export default [
         },
     },
     {
+        path: 'edit/:id',
+        component: DetailComponent,
+        resolve: {
+        },
+    },
+    {
         path: 'permissions',
         component: PermissionComponent,
         resolve: {

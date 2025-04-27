@@ -7,7 +7,6 @@ export interface Role
     description: string;
     permissions: string[];
     createdAt: string;
-    updatedAt: string;
 }
 export interface RoleForm
 {
@@ -15,14 +14,7 @@ export interface RoleForm
     description: AbstractControl<string | null>;
     permissions: AbstractControl<string[]>;
 }
-export interface RoleListItem
-{
-    id: string;
-    name: string;
-    description: string;
-    permissions: string[];
-    createdAt: string;
-}
+export interface RoleListItem extends Role {}
 export interface RoleListResponse
 {
     roles: RoleListItem[];
